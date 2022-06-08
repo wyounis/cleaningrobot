@@ -19,7 +19,7 @@ namespace CleaningRobotTesting
         {
             Robot r = new Robot((1, 1));
             r.East(1);
-            Assert.Equals(r.CurrentPosition, (2, 1));
+            Assert.AreEqual((2, 1), r.CurrentPosition);
         }
 
         [Test]
@@ -27,7 +27,7 @@ namespace CleaningRobotTesting
         {
             Robot r = new Robot((1, 1));
             r.East(10);
-            Assert.Equals(r.CurrentPosition, (11, 1));
+            Assert.AreEqual((11, 1), r.CurrentPosition);
         }
         #endregion
 
@@ -37,7 +37,7 @@ namespace CleaningRobotTesting
         {
             Robot r = new Robot((1, 1));
             r.West(1);
-            Assert.Equals(r.CurrentPosition, (0, 1));
+            Assert.AreEqual((0, 1), r.CurrentPosition);
         }
 
         [Test]
@@ -45,7 +45,7 @@ namespace CleaningRobotTesting
         {
             Robot r = new Robot((1, 1));
             r.West(10);
-            Assert.Equals(r.CurrentPosition, (-9, 1));
+            Assert.AreEqual((-9, 1), r.CurrentPosition);
         }
         #endregion
 
@@ -55,7 +55,7 @@ namespace CleaningRobotTesting
         {
             Robot r = new Robot((1, 1));
             r.North(1);
-            Assert.Equals(r.CurrentPosition, (1, 2));
+            Assert.AreEqual((1, 2), r.CurrentPosition);
         }
 
         [Test]
@@ -63,7 +63,7 @@ namespace CleaningRobotTesting
         {
             Robot r = new Robot((1, 1));
             r.North(10);
-            Assert.Equals(r.CurrentPosition, (1, 11));
+            Assert.AreEqual((1, 11), r.CurrentPosition);
         }
         #endregion
 
@@ -73,7 +73,7 @@ namespace CleaningRobotTesting
         {
             Robot r = new Robot((1, 1));
             r.South(1);
-            Assert.Equals(r.CurrentPosition, (1, 0));
+            Assert.AreEqual((1, 0), r.CurrentPosition);
         }
 
         [Test]
@@ -81,7 +81,7 @@ namespace CleaningRobotTesting
         {
             Robot r = new Robot((1, 1));
             r.South(10);
-            Assert.Equals(r.CurrentPosition, (1, -9));
+            Assert.AreEqual((1, -9), r.CurrentPosition);
         }
         #endregion
 
@@ -93,7 +93,7 @@ namespace CleaningRobotTesting
             r.South(1);
             r.West(10);
             r.Reset();
-            Assert.Equals(r.CurrentPosition, (1, 1));
+            Assert.AreEqual((1, 1), r.CurrentPosition);
         }
         #endregion 
 
@@ -102,12 +102,12 @@ namespace CleaningRobotTesting
         public void StartCleaning_NonOverlappingMovements1_UniqueVisitedSpots_Correct()
         {
             Robot r = new Robot((1, 1));
-            int uniqueMovements = r.StartCleaning(new List<(char, int)> { 
+            int uniqueMovements = r.StartCleaning(new List<(char, int)> {
                 ('E',3),
                 ('N',3),
                 ('W',3)
             });
-            Assert.Equals(uniqueMovements, 10);
+            Assert.AreEqual(10, uniqueMovements);
         }
 
         [Test]
@@ -119,7 +119,7 @@ namespace CleaningRobotTesting
                 ('N',9000),
                 ('W',9000)
             });
-            Assert.Equals(uniqueMovements, 27001);
+            Assert.AreEqual(27001, uniqueMovements);
         }
 
         [Test]
@@ -132,7 +132,7 @@ namespace CleaningRobotTesting
                 ('W',3),
                 ('S',5)
             });
-            Assert.Equals(uniqueMovements, 14);
+            Assert.AreEqual(14, uniqueMovements);
         }
 
         [Test]
@@ -143,7 +143,7 @@ namespace CleaningRobotTesting
                 ('E',2),
                 ('N',1)
             });
-            Assert.Equals(uniqueMovements, 4);
+            Assert.AreEqual(4, uniqueMovements);
         }
         #endregion 
     }
